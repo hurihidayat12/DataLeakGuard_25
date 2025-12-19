@@ -20,7 +20,7 @@ SENSITIVE_KEYWORDS = [
     'secret', 'token', 'private_key'
 ]
 
-ALLOWED_EXT = ('.txt', '.env', '.cfg', '.log', '.php', '.json')
+ALLOWED_EXT = ('.txt', '.env', '.cfg', '.log', '.php', '.json', '.pdf', 'docx')
 
 # ---------------- SCAN ENGINE ----------------
 def scan_file(path):
