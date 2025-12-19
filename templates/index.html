@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HESD Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+<div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-xl font-bold mb-4">Human Error Security Detector</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" multiple class="mb-4">
+        <button class="bg-indigo-600 text-white px-4 py-2 rounded">Scan Files</button>
+    </form>
+
+
+    <h2 class="mt-6 font-semibold">Previous Reports</h2>
+    <ul class="text-sm text-gray-600">
+        {% for r in reports %}<li>{{ r }}</li>{% endfor %}
+    </ul>
+</div>
+</body>
+</html>

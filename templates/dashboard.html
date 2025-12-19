@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HESD Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+<h1 class="text-2xl font-bold mb-4">Scan Result Dashboard</h1>
+
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div class="bg-white p-4 rounded shadow">
+        <p class="text-gray-500">Total Findings</p>
+        <p class="text-2xl font-bold">{{ data.total_findings }}</p>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+        <p class="text-gray-500">High Risk</p>
+        <p class="text-2xl font-bold text-red-600">{{ data.high_risk }}</p>
+    </div>
+</div>
+
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <table class="bg-white rounded shadow w-full">
+        <thead class="bg-gray-200">
+        <tr>
+            <th class="p-2">File</th>
+            <th>Line</th>
+            <th>Keyword</th>
+            <th>Risk</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in data.results %}
+        <tr class="border-t">
+            <td class="p-2 text-sm">{{ r.file }}</td>
+            <td>{{ r.line }}</td>
+            <td>{{ r.keyword }}</td>
+            <td class="text-red-600">{{ r.risk }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <canvas id="riskChart"></canvas>
+</div>
+
+
+<script>
+    new Chart(document.getElementById('riskChart'), {
+    type: 'doughnut',
+    </html>
